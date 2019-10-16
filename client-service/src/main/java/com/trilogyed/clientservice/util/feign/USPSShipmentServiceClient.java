@@ -13,7 +13,7 @@ public interface USPSShipmentServiceClient {
 
     // getting shipment
     @RequestMapping(value = "/shipment/{trackingnumber}", method = RequestMethod.GET)
-    public Shipment findShipment(@PathVariable int tn);
+    public Shipment findShipmentByTrackingNumber(@PathVariable (name ="trackingnumber" ) String tn);
 
     //adding shipment
     @RequestMapping(value = "/shipment/addshipment", method = RequestMethod.POST)

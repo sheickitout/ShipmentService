@@ -13,8 +13,8 @@ public class ShipmentServiceController {
     ServiceLayer sl;
 
     @RequestMapping(value = "/{trackingnumber}", method = RequestMethod.GET)
-    public Shipment findShipment(@PathVariable int tn){
-        return sl.findShipment(tn);
+    public Shipment findShipment(@PathVariable (name = "trackingnumber") String tn){
+        return sl.findByTrackingNumber(tn);
     }
 
     //adding shipment

@@ -17,13 +17,11 @@ public class ServiceLayer {
         this.shipRepo=shipRepo;
     }
 
-    public Shipment findShipment(int trackingNumber){
+    public Shipment findByTrackingNumber(String trackingNumber){
 
-        Optional<Shipment> shipment = shipRepo.findById(trackingNumber);
+        Shipment shipment = shipRepo.findByTrackingNumber(trackingNumber);
 
-        Shipment shipment1 = shipment.get();
-
-        return shipment1;
+        return shipment;
     }
 
     public Shipment addShipment(Shipment shipment){

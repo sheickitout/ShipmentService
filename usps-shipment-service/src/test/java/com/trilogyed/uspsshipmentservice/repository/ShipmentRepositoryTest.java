@@ -41,9 +41,9 @@ public class ShipmentRepositoryTest {
         //act
         shipmentToAdd = shipRepo.save(shipmentToAdd);
 
-        Optional<Shipment> shipmentAdded = shipRepo.findById(shipmentToAdd.getShipmentId());
+        Shipment shipmentAdded = shipRepo.findByTrackingNumber((shipmentToAdd.getTrackingNumber()));
         //assert
-        assertEquals(shipmentToAdd, shipmentAdded.get());
+        assertEquals(shipmentToAdd, shipmentAdded);
 
     }
 

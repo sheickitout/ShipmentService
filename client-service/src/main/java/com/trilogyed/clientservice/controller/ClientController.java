@@ -12,13 +12,13 @@ public class ClientController {
     @Autowired
     ServiceLayer service;
 
-    @RequestMapping(value = "/clienfe/shipment/{trackingnumber}", method = RequestMethod.GET)
-    public Shipment findShipment(@PathVariable int tn){
+    @RequestMapping(value = "/clientfe/shipment/{trackingnumber}", method = RequestMethod.GET)
+    public Shipment findShipment(@PathVariable (name = "trackingnumber" ) String tn){
         return service.findShipment(tn);
     }
 
     //adding shipment
-    @RequestMapping(value = "clientfe/shipment/addshipment", method = RequestMethod.POST)
+    @RequestMapping(value = "clientfe/addshipment", method = RequestMethod.POST)
     public Shipment addShipment(@RequestBody Shipment shipment){
         return service.addShipment(shipment);
     }

@@ -24,8 +24,8 @@ public class ServiceLayer {
         return ship;
     }
 
-    public Shipment findShipment(int tn){
-        Shipment ship = client.findShipment(tn);
+    public Shipment findShipment(String tn){
+        Shipment ship = client.findShipmentByTrackingNumber(tn);
         return ship;
     }
 }
