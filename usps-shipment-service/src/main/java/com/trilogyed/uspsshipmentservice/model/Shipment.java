@@ -1,9 +1,16 @@
 package com.trilogyed.uspsshipmentservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "shipment")
 public class Shipment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int shipmentId;
     private String name;
     private String trackingNumber;

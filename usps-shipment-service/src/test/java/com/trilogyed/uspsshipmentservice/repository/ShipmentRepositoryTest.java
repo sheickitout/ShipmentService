@@ -42,9 +42,8 @@ public class ShipmentRepositoryTest {
         shipmentToAdd = shipRepo.save(shipmentToAdd);
 
         Optional<Shipment> shipmentAdded = shipRepo.findById(shipmentToAdd.getShipmentId());
-
+        //assert
         assertEquals(shipmentToAdd, shipmentAdded.get());
-
 
     }
 
