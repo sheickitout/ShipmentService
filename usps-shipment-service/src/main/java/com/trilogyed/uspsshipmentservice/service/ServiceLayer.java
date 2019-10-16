@@ -25,8 +25,7 @@ public class ServiceLayer {
     }
 
     public Shipment addShipment(Shipment shipment){
-
-        Shipment newShipment = shipRepo.save(shipment);
+            Shipment newShipment = shipRepo.save(shipment);
 
         return newShipment;
 

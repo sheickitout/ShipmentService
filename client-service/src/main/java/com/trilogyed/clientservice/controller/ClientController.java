@@ -14,6 +14,7 @@ public class ClientController {
 
     @RequestMapping(value = "/clientfe/shipment/{trackingnumber}", method = RequestMethod.GET)
     public Shipment findShipment(@PathVariable (name = "trackingnumber" ) String tn){
+
         return service.findShipment(tn);
     }
 
