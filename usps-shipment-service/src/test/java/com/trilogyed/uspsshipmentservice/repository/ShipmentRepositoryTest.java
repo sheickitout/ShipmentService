@@ -1,0 +1,51 @@
+package com.trilogyed.uspsshipmentservice.repository;
+
+import com.trilogyed.uspsshipmentservice.model.Shipment;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Optional;
+
+import static org.junit.Assert.assertEquals;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ShipmentRepositoryTest {
+
+    @Autowired
+    ShipmentRepository shipRepo;
+
+    @Before
+    public void setUp(){
+        shipRepo.deleteAll();
+    }
+
+    @After
+    public void tearDown(){
+        shipRepo.deleteAll();
+    }
+
+    @Test
+    public void addGetShipment(){
+
+        //assemble
+        Shipment shipmentToAdd = new Shipment();
+        shipmentToAdd.setName("Peter F.");
+        shipmentToAdd.setTrackingNumber("200100");
+
+        //act
+        shipmentToAdd = shipRepo.save(shipmentToAdd);
+
+        Optional<Shipment> shipmentAdded = shipRepo.findById(shipmentToAdd.getShipmentId());
+
+        assertEquals(shipmentToAdd, shipmentAdded.get());
+
+
+    }
+
+}
